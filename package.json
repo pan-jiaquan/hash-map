@@ -1,0 +1,35 @@
+{
+  "name": "ihash-map",
+  "version": "0.1.0",
+  "description": "Hash table based implementation of the Map interface",
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.ts",
+  "scripts": {
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pan-jiaquan/hash-map.git"
+  },
+  "keywords": ["HashMap"],
+  "author": "pan.jiaquan@outlook.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pan-jiaquan/hash-map/issues"
+  },
+  "homepage": "https://github.com/pan-jiaquan/hash-map#readme",
+  "devDependencies": {
+    "tslint": "^5.18.0",
+    "typescript": "~3.4.0",
+    "gts": "^1.0.0"
+  },
+  "dependencies": {
+    "tslint-config-airbnb": "^5.11.1"
+  }
+}
