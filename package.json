@@ -17,7 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/pan-jiaquan/hash-map.git"
   },
-  "keywords": ["HashMap"],
+  "keywords": [
+    "HashMap"
+  ],
   "author": "pan.jiaquan@outlook.com",
   "license": "MIT",
   "bugs": {
@@ -29,7 +31,5 @@
     "typescript": "~3.4.0",
     "gts": "^1.0.0"
   },
-  "dependencies": {
-    "tslint-config-airbnb": "^5.11.1"
-  }
+  "dependencies": {}
 }
