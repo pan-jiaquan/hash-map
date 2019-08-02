@@ -1,7 +1,7 @@
 {
   "name": "ihash-map",
-  "version": "0.1.0",
-  "description": "Hash table based implementation of the Map interface",
+  "version": "0.1.2",
+  "description": "HashMap based implementation of the Map interface, with predictable iteration order",
   "main": "./build/src/index.js",
   "types": "./build/src/index.d.ts",
   "scripts": {

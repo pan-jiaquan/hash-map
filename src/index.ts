@@ -38,8 +38,8 @@ export default class HashMap<K, V> implements Map<K, V> {
   get(key: K) {
     const code = this.hashCode(key);
     const bucket = this.cache[code] || [];
-    const value = bucket.find(([otherKey]) => this.equals(key, otherKey));
-    return value && value[1];
+    const entry = bucket.find(([otherKey]) => this.equals(key, otherKey));
+    return entry && entry[1];
   }
 
   has(key: K) {
@@ -51,15 +51,15 @@ export default class HashMap<K, V> implements Map<K, V> {
   set(key: K, value: V) {
     const code = this.hashCode(key);
     const bucket = this.cache[code] || (this.cache[code] = []);
-    const index = bucket.findIndex(([otherKey]) => this.equals(key, otherKey));
-    const item: [K, V] = [key, value];
-    if (index !== -1) {
-      const [element] = bucket.splice(index, 1, item);
-      this.data.delete(element);
+    const entry = bucket.find(([otherKey]) => this.equals(key, otherKey));
+    if (entry) {
+      entry[0] = key;
+      entry[1] = value;
     } else {
+      const item: [K, V] = [key, value];
       bucket.push(item);
+      this.data.add(item);
     }
-    this.data.add(item);
     return this;
   }
 
@@ -68,11 +68,11 @@ export default class HashMap<K, V> implements Map<K, V> {
   }
 
   [Symbol.iterator]() {
-    return this.data[Symbol.iterator]();
+    return this.entries();
   }
 
   entries() {
-    return this.data.values();
+    return this.createIterator<[K, V]>(item => [item[0], item[1]]);
   }
 
   keys() {
